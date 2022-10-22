@@ -22,8 +22,8 @@ const StyledContainer = styled('div')(() => ({
         display: 'flex',
         alignItems: 'center',
         position: 'fixed',
-        left: 280,
-        top: 56,
+        left: 275,
+        top: 65,
         right: 0,
         zIndex: 200
     },
@@ -107,9 +107,8 @@ const StyledContainer = styled('div')(() => ({
     },
 }));
 
-export default function FournisseurForm() {
-    const depots = useSelector(selectAllDepots);
-    const [depot, setDepot] = useState(null);
+export default function ClientForm() {
+    const [numDef, setNumDef] = useState("");
     const [nom, setNom] = useState('');
     const [postnom, setPostnom] = useState('');
     const [denomination, setDenomination] = useState('');
@@ -144,7 +143,6 @@ export default function FournisseurForm() {
         setNumClient('');
         setErrors({});
         setAllDepots(true);
-        setDepot(null);
         setSelectedDepots([]);
     }
 
@@ -163,24 +161,6 @@ export default function FournisseurForm() {
         if (isValidEmail(val)) {
             setErrors(errors => ({ ...errors, email: null }));
         }
-    }
-
-    const handleSelectDepot = (value) => {
-        setDepot(value);
-        setErrors(errors => ({ ...errors, depot: null }));
-    }
-
-    const handleAppendDepot = () => {
-        if (!depot || (depot && selectedDepots.some(d => d.id === depot.id))) {
-            return;
-        }
-        setSelectedDepots(depots => ([...depots, depot]));
-        setErrors({ ...errors, depot: null });
-        setDepot(null);
-    }
-
-    const handleRemoveDepot = (id) => {
-        setSelectedDepots(selectedDepots.filter(d => d.id !== id));
     }
 
     const handleSubmit = async () => {
@@ -270,6 +250,27 @@ export default function FournisseurForm() {
                         <Typography variant="caption">Informations de base</Typography>
                     </div>
                     <form>
+                        <div className="form-controle" style={{ marginBottom: 10 }}>
+                            <Typography
+                                sx={{ display: 'block', mr: 1.5 }}
+                                variant='caption'
+                                component={"label"}
+                                htmlFor="def"
+                                className="label"
+                            >Numéro DEF</Typography>
+                            <TextField
+                                name="def"
+                                id="def"
+                                type="text"
+                                placeholder='Numéro DEF du client'
+                                fullWidth
+                                size="small"
+                                value={numDef}
+                                onChange={e => setNumDef(e.target.value)}
+                                sx={{ m: "2px 0" }}
+                                className="star"
+                            />
+                        </div>
                         <div className="colored-bloc">
                             <Typography variant="caption" sx={{ mb: 1, display: 'block', fontSize: '17px', fontWeight: '500' }}>
                                 Indentés de la personne
@@ -296,7 +297,7 @@ export default function FournisseurForm() {
                                         name="nom"
                                         id="nom"
                                         type="text"
-                                        placeholder='Nom du fournisseur'
+                                        placeholder='Nom du client'
                                         fullWidth
                                         size="small"
                                         value={nom}
@@ -317,7 +318,7 @@ export default function FournisseurForm() {
                                         name="postnom"
                                         id="postnom"
                                         fullWidth
-                                        placeholder='Post nom du fournisseur'
+                                        placeholder='Post nom du client'
                                         type="text"
                                         value={postnom}
                                         onChange={e => setPostnom(e.target.value)}
@@ -403,7 +404,7 @@ export default function FournisseurForm() {
                                         name="tel"
                                         id="tel"
                                         type="tel"
-                                        placeholder='Tel du fournisseur'
+                                        placeholder='Tel du client'
                                         fullWidth
                                         value={tel}
                                         onChange={e => {
@@ -430,7 +431,7 @@ export default function FournisseurForm() {
                                         fullWidth
                                         value={email}
                                         onChange={e => handleChangeEmail(e.target.value)}
-                                        placeholder='Email du fournisseur'
+                                        placeholder='Email du client'
                                         type="email"
                                         inputProps={{ min: 0 }}
                                         size="small"
@@ -574,7 +575,7 @@ export default function FournisseurForm() {
                                                         }
                                                     }}
                                                     inputMode='numeric'
-                                                    placeholder='Num fournisseur. Ex. 0001'
+                                                    placeholder='Num client. Ex. 0001'
                                                     type="email"
                                                     inputProps={{ min: 0 }}
                                                     size="small"
@@ -599,7 +600,7 @@ export default function FournisseurForm() {
                                                 type="text"
                                                 size="small"
                                                 fullWidth
-                                                placeholder='Intitulé du compte fournisseur'
+                                                placeholder='Intitulé du compte client'
                                                 value={intitule}
                                                 onChange={e => {
                                                     setErrors(errors => ({ ...errors, intitule: null }));
@@ -610,102 +611,6 @@ export default function FournisseurForm() {
                                                 error={errors.intitule ? true : false}
                                                 helperText={errors.intitule}
                                             />
-                                        </Box>
-                                    </Box>
-                                </Box>
-                            </Box>
-                        </form>
-                    </StyledBoxContainer>
-                    <StyledBoxContainer
-                        minWidth={450}
-                        mt={2.5}
-                    >
-                        <div className="header">
-                            <Typography variant="caption">Dépôt/Magasin</Typography>
-                        </div>
-                        <form>
-                            <Box>
-                                <Box px={1.5}>
-                                    <Typography variant="caption" sx={{ mb: 1, display: 'block', fontWeight: '500' }}>
-                                        Dans quel dépôt/magasin fourni-t-il ?
-                                    </Typography>
-                                    <Box display="flex" alignItems='center'>
-                                        <Radio
-                                            label={'Tous les magasins'}
-                                            value={compte}
-                                            checked={allDepots}
-                                            onChange={() => {
-                                                setAllDepots(true);
-                                                setDepot(null);
-                                                setErrors({ ...errors, depot: null });
-                                                setSelectedDepots([]);
-                                            }}
-                                            style={{ marginRight: 10 }}
-                                        />
-                                        <Radio
-                                            label={'Magasins spécifique'}
-                                            value={allDepots}
-                                            checked={!allDepots}
-                                            onChange={() => setAllDepots(false)}
-                                        />
-                                    </Box>
-                                    <Box
-                                        className="colored-bloc"
-                                        sx={{
-                                            mt: 1
-                                        }}
-                                    >
-                                        <Typography variant="caption" sx={{ mb: 1, display: 'block', fontSize: '17px!important', fontWeight: '500' }}>
-                                            Dépôts/Magasins
-                                        </Typography>
-                                        <Box py={0.5}>
-                                            {selectedDepots.length > 0 &&
-                                                <div className="chips-container">
-                                                    {selectedDepots.map((depot, i) => (
-                                                        <Chip
-                                                            key={depot.id}
-                                                            label={`${depot.nom_depot}`}
-                                                            color={"primary"}
-                                                            variant="outlined"
-                                                            sx={{
-                                                                mr: 0.5,
-                                                                mt: '3px'
-                                                            }}
-                                                            deleteIcon={<Cancel />}
-                                                            onDelete={() => handleRemoveDepot(depot.id)}
-                                                        />
-                                                    ))}
-                                                </div>
-                                            }
-                                            <div className='form-controle' style={{ display: 'flex' }}>
-                                                <ComboBox
-                                                    id="magasin"
-                                                    options={depots}
-                                                    value={depot}
-                                                    optionLabel="nom_depot"
-                                                    setValue={handleSelectDepot}
-                                                    placeholder="Séléctionnez le magasin"
-                                                    minWidth={100}
-                                                    error={errors.depot ? true : false}
-                                                    helperText={errors.depot}
-                                                    disabled={allDepots}
-                                                    sx={{
-                                                        '& > div': {
-                                                            margin: 0
-                                                        }
-                                                    }}
-                                                />
-                                                <Button
-                                                    color="default"
-                                                    variant="outlined"
-                                                    onClick={handleAppendDepot}
-                                                    startIcon={<Add />}
-                                                    sx={{
-                                                        marginLeft: 0.5,
-                                                        maxHeight: 37
-                                                    }}
-                                                >Ajouter</Button>
-                                            </div>
                                         </Box>
                                     </Box>
                                 </Box>

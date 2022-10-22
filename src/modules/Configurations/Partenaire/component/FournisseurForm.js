@@ -108,6 +108,7 @@ const StyledContainer = styled('div')(() => ({
 }));
 
 export default function FournisseurForm() {
+    const [numDef, setNumDef] = useState("");
     const depots = useSelector(selectAllDepots);
     const [depot, setDepot] = useState(null);
     const [nom, setNom] = useState('');
@@ -270,6 +271,27 @@ export default function FournisseurForm() {
                         <Typography variant="caption">Informations de base</Typography>
                     </div>
                     <form>
+                        <div className="form-controle" style={{ marginBottom: 10 }}>
+                            <Typography
+                                sx={{ display: 'block', mr: 1.5 }}
+                                variant='caption'
+                                component={"label"}
+                                htmlFor="def"
+                                className="label"
+                            >Numéro DEF</Typography>
+                            <TextField
+                                name="def"
+                                id="def"
+                                type="text"
+                                placeholder='Numéro DEF du client'
+                                fullWidth
+                                size="small"
+                                value={numDef}
+                                onChange={e => setNumDef(e.target.value)}
+                                sx={{ m: "2px 0" }}
+                                className="star"
+                            />
+                        </div>
                         <div className="colored-bloc">
                             <Typography variant="caption" sx={{ mb: 1, display: 'block', fontSize: '17px', fontWeight: '500' }}>
                                 Indentés de la personne

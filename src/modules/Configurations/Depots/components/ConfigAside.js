@@ -123,7 +123,7 @@ const ConfigLeftAside = () => {
                         </Typography>
                     </StyledMenuItem>
                     <StyledMenuItem
-                        to={`partenaires/clients`}
+                        to={`/configurations/partenaires/clients`}
                         className={(navData) => navData.isActive ? "active" : ""}
                     >
                         <People
@@ -136,7 +136,7 @@ const ConfigLeftAside = () => {
                         </Typography>
                     </StyledMenuItem>
                     <StyledMenuItem
-                        to={`partenaires/fournisseurs`}
+                        to={`/configurations/partenaires/fournisseurs`}
                         className={(navData) => navData.isActive ? "active" : ""}
                     >
                         <GroupsIcon
