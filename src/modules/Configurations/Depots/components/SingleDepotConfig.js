@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { selectById } from '../../../../app/reducers/depot';
 import { styled } from '@mui/system';
 import BasicInfos from './BasicInfos';
-import DepotSubdivision from './DepotSubdivision';
 import ConfigGestionStocksDepot from './ConfigGestionStocksDepot';
 
 const StyledContainer = styled('div')(() => ({
@@ -24,7 +23,6 @@ export default function SingleDepotConfig() {
             <div className="align-flex">
                 <BasicInfos depot={depot || {}} />
                 <div style={{ flex: 1 }}>
-                    <DepotSubdivision depot={depot || {}} />
                     <ConfigGestionStocksDepot depot={depot || {}} />
                 </div>
             </div>

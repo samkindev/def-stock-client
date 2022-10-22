@@ -7,6 +7,7 @@ import Fournisseurs from '../../modules/Configurations/Partenaire/component/Four
 import FournisseurForm from '../../modules/Configurations/Partenaire/component/FournisseurForm';
 import Clients from '../../modules/Configurations/Partenaire/component/Clients';
 import ClientForm from '../../modules/Configurations/Partenaire/component/ClientForm';
+import ConfigLeftAside from '../../modules/Configurations/Produits/components/LeftAside';
 
 const StyledContainer = styled('div')(() => ({
     width: '100%',
@@ -19,7 +20,7 @@ export default function PartenaireRoutes() {
 
     return (
         <StyledContainer>
-            <PartenaireAside />
+            <ConfigLeftAside />
             <div className="main">
                 <Routes>
                     <Route

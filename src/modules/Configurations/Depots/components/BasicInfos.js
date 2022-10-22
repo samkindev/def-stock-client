@@ -156,7 +156,7 @@ export default function BasicInfos({ depot }) {
                 />
             }
             <div className="header">
-                <Typography variant="caption">Infos de base</Typography>
+                <Typography variant="caption" className="title">Infos de base</Typography>
                 <Button
                     disableElevation
                     variant='outlined'

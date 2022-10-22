@@ -138,8 +138,8 @@ export default function Facturation() {
         address: ''
     });
     const [vendeur, setVendeur] = useState({
-        nom_vendeur: `${user.prenom} ${user.nom}`,
-        code_guichet: user.code_guichet || ''
+        nom_vendeur: "",
+        code_guichet: ''
     });
     const [netPayer, setNetPayer] = useState(0);
     const [paymentMode, setPaymentMode] = useState(null);

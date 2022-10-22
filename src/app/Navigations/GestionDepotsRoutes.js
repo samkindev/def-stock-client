@@ -15,7 +15,7 @@ import SortieForm from '../../modules/Depots/components/SortieForm.js';
 const StyledContainer = styled('div')(() => ({
     width: '100%',
     "& .main": {
-        marginTop: 56
+        marginTop: 65
     }
 }));
 

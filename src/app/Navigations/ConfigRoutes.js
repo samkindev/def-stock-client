@@ -10,7 +10,7 @@ import PartenaireRoutes from './PartenaireRoutes';
 const StyledContainer = styled('div')(() => ({
     width: '100%',
     "& .main": {
-        marginTop: 54
+        marginTop: 65
     }
 }));
 
@@ -30,7 +30,7 @@ export default function ConfigRoutes() {
                         element={<ProduitConfigRoutes />}
                     />
                     <Route
-                        path="partenaire/*"
+                        path="partenaires/*"
                         element={<PartenaireRoutes />}
                     />
                     <Route

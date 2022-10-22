@@ -7,7 +7,6 @@ import { selectAll as selectAllDepot } from '../../../../app/reducers/depot';
 import StoreMallDirectoryIcon from '@mui/icons-material/StoreMallDirectory';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import { People } from '@mui/icons-material';
-import GroupsIcon from '@mui/icons-material/Groups';
 
 const StyledContainer = styled('div')(({ theme }) => ({
     width: 280,
@@ -76,38 +75,8 @@ const ConfigLeftAside = () => {
                 <Box width={"fit-content"} height={"50px"} marginBottom="20px">
                     <img src="/logo_white.svg" alt="logo" />
                 </Box>
-                <Link to="">
-                    <Button
-                        disableElevation
-                        variant='contained'
-                        color="primary"
-                        size='medium'
-                        type="submit"
-                        sx={{
-                            mb: 1.5
-                        }}
-                    >Créer nouveaux depots</Button>
-                </Link>
             </div>
             <div className="body">
-                <StyledDepotsList>
-                    {depotsList.map(depot => (
-                        <StyledMenuItem
-                            to={`/configurations/depots/${depot.id}`}
-                            key={depot.id}
-                            className={(navData) => navData.isActive ? "active" : ""}
-                        >
-                            <StoreMallDirectoryIcon
-                                fontSize='small'
-                                className="icon"
-                                color="inherit"
-                            />
-                            <Typography variant="caption" color="inherit" className="small">
-                                {depot.nom_depot}
-                            </Typography>
-                        </StyledMenuItem>
-                    ))}
-                </StyledDepotsList>
                 <StyledDepotsList>
                     <StyledMenuItem
                         to={`/configurations/produits`}
@@ -123,7 +92,20 @@ const ConfigLeftAside = () => {
                         </Typography>
                     </StyledMenuItem>
                     <StyledMenuItem
-                        to={`partenaires/clients`}
+                        to={`/configurations/depots`}
+                        className={(navData) => navData.isActive ? "active" : ""}
+                    >
+                        <StoreMallDirectoryIcon
+                            fontSize='small'
+                            className="icon"
+                            color="inherit"
+                        />
+                        <Typography variant="caption" color="inherit" className="small">
+                            Configuration des dépôts
+                        </Typography>
+                    </StyledMenuItem>
+                    <StyledMenuItem
+                        to={`/configurations/partenaires/clients`}
                         className={(navData) => navData.isActive ? "active" : ""}
                     >
                         <People
@@ -136,10 +118,10 @@ const ConfigLeftAside = () => {
                         </Typography>
                     </StyledMenuItem>
                     <StyledMenuItem
-                        to={`partenaires/fournisseurs`}
+                        to={`/configurations/partenaires/fournisseurs`}
                         className={(navData) => navData.isActive ? "active" : ""}
                     >
-                        <GroupsIcon
+                        <People
                             fontSize='small'
                             className="icon"
                             color="inherit"

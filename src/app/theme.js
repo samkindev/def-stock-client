@@ -54,9 +54,9 @@ const typographyTheme = createTheme({
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#307ECC',
-            light: "#6FAED9",
-            dark: "#0b222f"
+            main: '#0D247F',
+            light: "#0D247F07",
+            dark: "#0D1426"
         },
         secondary: {
             main: "#fd7e14",
@@ -74,7 +74,7 @@ const theme = createTheme({
             main: '#fff',
         },
         background: {
-            main: '#E4E6E9'
+            main: '#dadde7'
         },
     },
     typography: typographyTheme.typography,
@@ -189,31 +189,33 @@ const theme = createTheme({
 
 export const StyledBoxContainer = styled(Box)(() => ({
     marginRight: 20,
-    border: '1px solid rgb(204, 204, 204)',
     boxShadow: '0px 0px 5px #eaeaea',
+    borderTop: "4px solid " + theme.palette.primary.dark,
     backgroundColor: '#fff',
-    borderRadius: 4,
+    borderRadius: 10,
     overflow: 'hidden',
     display: 'flex',
     flexDirection: 'column',
     "& .header": {
-        padding: '10px',
-        borderBottom: '1px solid rgb(204, 204, 204)',
-        backgroundColor: '#eeeeee',
+        padding: '20px 20px 10px 20px',
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        "& .title": {
+            color: theme.palette.primary.dark,
+            fontWeight: 'bold'
+        }
     },
     "& form": {
         flex: 1,
-        padding: 10,
+        padding: 20,
         "& .form-controle": {
             marginBottom: '5px',
         }
     },
     "& .footer": {
         display: 'flex',
-        padding: 10,
+        padding: 20,
         justifyContent: 'flex-end',
         borderTop: '1px solid rgb(238, 237, 237)',
     }

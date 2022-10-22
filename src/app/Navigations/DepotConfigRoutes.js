@@ -8,7 +8,7 @@ import { styled } from '@mui/system';
 const StyledContainer = styled('div')(() => ({
     width: '100%',
     "& .main": {
-        marginLeft: 280,
+        marginLeft: 290,
     }
 }));
 
@@ -28,7 +28,6 @@ export default function DepotConfigRoutes() {
                         element={<DepotsConfigurations />}
                     />
                 </Routes>
-
             </div>
         </StyledContainer>
     )

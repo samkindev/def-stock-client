@@ -52,40 +52,6 @@ const StyledNavLink = styled(NavLink)(({ theme }) => ({
 export default function ConfigNavBar() {
     return (
         <Topbar title="Intranet et admin" paddingVertical={0}>
-            <StyledMenu>
-                <StyledNavLink
-                    to="depots"
-                    className={(navData) => navData.isActive ? "active" : ""}
-                >
-                    <StoreIcon color="inherit" />
-                    <span className="text">Dépots</span>
-                    <span className="line"></span>
-                </StyledNavLink>
-                <StyledNavLink
-                    to="produits"
-                    className={(navData) => navData.isActive ? "active" : ""}
-                >
-                    <GrainIcon color="inherit" />
-                    <span className="text">Produit</span>
-                    <span className="line"></span>
-                </StyledNavLink>
-                <StyledNavLink
-                    to="personnel"
-                    className={(navData) => navData.isActive ? "active" : ""}
-                >
-                    <WorkspacesIcon color="inherit" />
-                    <span className="text">Personnel</span>
-                    <span className="line"></span>
-                </StyledNavLink>
-                <StyledNavLink
-                    to="partenaire"
-                    className={(navData) => navData.isActive ? "active" : ""}
-                >
-                    <GroupsIcon color="inherit" />
-                    <span className="text">Partenaires</span>
-                    <span className="line"></span>
-                </StyledNavLink>
-            </StyledMenu>
         </Topbar>
     )
 }

@@ -1,14 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
-import ConfigLeftAside from "./components/ConfigAside";
 import NewDepot from "./components/NewDepot";
 
 const StyledContainer = styled("div")(() => ({
     width: "100%",
-    minHeight: "100vh",
-}));
-
-const StyledWrapper = styled("div")(() => ({
     minHight: "calc(100% - 245px)",
     overflowX: "hidden",
     padding: "20px",
@@ -28,10 +23,7 @@ const StyledWrapper = styled("div")(() => ({
 export default function DepotsConfiguration() {
     return (
         <StyledContainer>
-            <ConfigLeftAside />
-            <StyledWrapper>
-                <NewDepot />
-            </StyledWrapper>
+            <NewDepot />
         </StyledContainer>
     );
 }

@@ -10,8 +10,12 @@ import GestionDepotsRoutes from './GestionDepotsRoutes';
 import { getDepots, getReqStatus } from '../reducers/depot';
 import { Chargement } from '../../Components';
 import FacturationRoutes from './FacturationRoutes';
-const StyledContainer = styled('div')(() => ({
-    width: '100%'
+import ConfigLeftAside from '../../modules/Configurations/Depots/components/ConfigAside';
+
+const StyledContainer = styled('div')(({ theme }) => ({
+    width: '100%',
+    backgroundColor: theme.palette.background.main,
+    minHeight: '100vh'
 }));
 
 export default function MainRoutes() {
@@ -28,24 +32,26 @@ export default function MainRoutes() {
                 <Chargement sx={{ minHeight: "calc(100vh - 56px)" }} /> :
                 depots.length === 0 ?
                     <MainSplash /> :
-                    <Routes>
-                        <Route
-                            path="/"
-                            element={<ConfigRoutes />}
-                        />
-                        <Route
-                            path="configurations/*"
-                            element={<ConfigRoutes />}
-                        />
-                        <Route
-                            path="depots/*"
-                            element={<GestionDepotsRoutes />}
-                        />
-                        <Route
-                            path="facturation/*"
-                            element={<FacturationRoutes />}
-                        />
-                    </Routes>
+                    <div>
+                        <Routes>
+                            <Route
+                                path="/"
+                                element={<ConfigRoutes />}
+                            />
+                            <Route
+                                path="configurations/*"
+                                element={<ConfigRoutes />}
+                            />
+                            <Route
+                                path="depots/*"
+                                element={<GestionDepotsRoutes />}
+                            />
+                            <Route
+                                path="facturation/*"
+                                element={<FacturationRoutes />}
+                            />
+                        </Routes>
+                    </div>
             }
         </StyledContainer>
     )

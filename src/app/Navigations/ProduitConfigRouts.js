@@ -6,13 +6,14 @@ import VisualizeProduct from '../../modules/Configurations/Produits/components/V
 import NewProduitForm from '../../modules/Configurations/Produits/components/NewProduitForm';
 import ProduitUpdateForm from '../../modules/Configurations/Produits/components/UpdateForm';
 import axios from 'axios';
+import ConfigLeftAside from '../../modules/Configurations/Produits/components/LeftAside';
 
 export const CategoryContext = createContext();
 
 const StyledContainer = styled('div')(() => ({
     width: '100%',
     "& .main": {
-        marginLeft: 340,
+        marginLeft: 290,
     }
 }));
 
@@ -45,6 +46,7 @@ export default function ProduitConfigRoutes() {
     return (
         <CategoryContext.Provider value={{ categories, loading, selectedCategory, setSelectedCategory }}>
             <StyledContainer>
+                <ConfigLeftAside />
                 <div className="main">
                     <Routes location={state ? state.backgroundLocation : location.pathname}>
                         <Route

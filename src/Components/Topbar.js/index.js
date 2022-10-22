@@ -26,7 +26,7 @@ import { useSelector } from "react-redux";
 import { getCurrentUser, getTaux, getDevise } from "../../app/reducers/auth";
 import { getLoginRedirectUrl } from "../../utilities/helpers";
 
-export default function Topbar({ title, children, paddingHorizontal = 2, paddingVertical = 1, style, ...other }) {
+export default function Topbar({ title, children, paddingHorizontal = 2, paddingVertical = 3, style, ...other }) {
 	const user = useSelector(getCurrentUser);
 	const taux = useSelector(getTaux);
 	const devise = useSelector(getDevise);
@@ -49,9 +49,9 @@ export default function Topbar({ title, children, paddingHorizontal = 2, padding
 		<div
 			className="appbar"
 			style={{
-				backgroundColor: theme.palette.grey[200],
-				padding: theme.spacing(paddingVertical, paddingHorizontal),
-				borderBottom: "2px solid " + theme.palette.primary.light,
+				backgroundColor: "white",
+				padding: "10px 10px",
+				boxShadow: "#00000033 2px 0px 12px",
 				...style
 			}}
 			{...other}
@@ -63,13 +63,11 @@ export default function Topbar({ title, children, paddingHorizontal = 2, padding
 				{openMenu && (
 					<MainAppMenu open={openMenu} toggleMenu={toggleMenu} user={user} />
 				)}
-				<Typography
-					color="primary"
-					variant="h1"
-					sx={{ fontWeight: 500 }}
-				>
-					GES | <Typography variant="caption" >{title}</Typography>
-				</Typography>
+				<Box display="flex" itemsAlign="center">
+					<Box width={"fit-content"} height={"30px"}>
+						<img src="/logo.svg" alt="logo" />
+					</Box>
+				</Box>
 			</Box>
 			{children}
 			<Box display='flex' alignItems="center">
@@ -101,7 +99,7 @@ export default function Topbar({ title, children, paddingHorizontal = 2, padding
 const User = ({ user }) => {
 	return (
 		<div className="user">
-			<Avatar style={{ width: 25, height: 25, color: "#000" }} />
+			<Avatar variant="rounded" style={{ width: 40, height: 40, color: "gray", backgroundColor: "#ccc" }} />
 			<div className="user-detailes">
 				<Typography variant="caption">
 					{user && <span>{user.prenom}</span>}
@@ -274,10 +272,8 @@ const MainAppMenu = ({ open, user, toggleMenu }) => {
 			<StyledFooter>
 				<Box display="flex" alignItems="center" p={1.5}>
 					<Avatar sx={{ width: 30, height: 30, mr: 1, fontSize: 14 }}>
-						{user.prenom[0]}
 					</Avatar>
 					<Typography variant="caption" className="small">
-						{user.prenom} {user.postnom}
 					</Typography>
 				</Box>
 				<Divider />

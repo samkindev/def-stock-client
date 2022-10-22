@@ -38,10 +38,11 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 	whiteSpace: 'nowrap',
 	maxWidth: 120,
 	[`&.${tableCellClasses.head}`]: {
-		backgroundColor: '#307eccd6',
-		color: theme.palette.common.white,
-		fontSize: 15,
-		padding: "5px 10px",
+		// backgroundColor: '#307eccd6',
+		// color: theme.palette.common.white,
+		fontSize: 12,
+		textTransform: 'uppercase'
+		// padding: "5px 10px",
 	},
 	[`&.${tableCellClasses.body}`]: {
 		fontSize: 14,

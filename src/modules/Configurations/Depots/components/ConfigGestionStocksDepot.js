@@ -209,7 +209,6 @@ export default function ConfigGestionStocksDepot({ depot }) {
         <StyledContainer
             width='100%'
             maxWidth={1200}
-            marginTop={3}
         >
             <div className="header">
                 <Typography variant="caption">Paramètres des stocks dans le depot</Typography>
