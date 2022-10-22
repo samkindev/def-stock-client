@@ -1,0 +1,44 @@
+.main-stock {
+    margin-left: 200px;
+    margin-top: 53px;
+    padding: 0 10px;
+}
+
+.approv-container {
+    padding-bottom: 20px;
+}
+
+/* Produits */
+.produits {
+    flex: 1 1;
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #d9d9d9;
+    min-height: calc(100vh - 123px)
+}
+
+/* Configuration */
+.left-aside {
+    max-width: 300px;
+    background-color: #eeeeee;
+    position: fixed;
+    left: 0;
+    top: 54px;
+    bottom: 0;
+    overflow-y: auto;
+    padding: 15px 10px;
+    border-right: 1px solid rgb(204, 204, 204);
+}
+.aside-header {
+    border-bottom: 1px solid rgb(148, 148, 148);
+    padding: 15px 0;
+}
+
+.aside-body {
+    padding: 15px 0;
+}
+
+.aside-body button:first-of-type {
+    margin-bottom: 15px
+}
