@@ -32,7 +32,7 @@ export default function ProduitConfigRoutes() {
     useEffect(() => {
             setLoading(true);
             axios
-                .get('/api/categorie_produit')
+                .get('https://def-api.herokuapp.com/api/categorie_produit')
                 .then(res => {
                     const d = res.data;
                     setCategories(d);
