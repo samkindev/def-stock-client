@@ -26,7 +26,7 @@ const initialState = venteProduitsEntity.getInitialState({
 export const getProduitsDisponibles = createAsyncThunk(
 	"ventes/produit disponible",
 	async (depotId) => {
-		const res = await axios.get(`/api/depot/${depotId}/vente/produits`);
+		const res = await axios.get(`https://def-api.herokuapp.com/api/depot/${depotId}/vente/produits`);
 		return res.data;
 	}
 );
@@ -34,7 +34,7 @@ export const getProduitsDisponibles = createAsyncThunk(
 export const getPaymentModes = createAsyncThunk(
 	"ventes/mode payment",
 	async () => {
-		const res = await axios.get('/api/mode_payement');
+		const res = await axios.get('https://def-api.herokuapp.com/api/mode_payement');
 		return res.data;
 	}
 );
@@ -42,7 +42,7 @@ export const getPaymentModes = createAsyncThunk(
 export const getReductions = createAsyncThunk(
 	"ventes/reductions",
 	async () => {
-		const res = await axios.get('/api/reduction');
+		const res = await axios.get('https://def-api.herokuapp.com/api/reduction');
 		return res.data;
 	}
 );
@@ -50,7 +50,7 @@ export const getReductions = createAsyncThunk(
 export const saveVente = createAsyncThunk(
 	"vente/save",
 	async ({ depotId, data }) => {
-		const res = await axios.post(`/api/depot/${depotId}/vente`, data);
+		const res = await axios.post(`https://def-api.herokuapp.com/api/depot/${depotId}/vente`, data);
 		return res.data;
 	}
 );

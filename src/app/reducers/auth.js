@@ -4,7 +4,7 @@ import axios from 'axios';
 export const login = createAsyncThunk(
     'user/login',
     async ({ username, password }) => {
-        const res = await axios.post('/api/user/login', { username, password });
+        const res = await axios.post('https://def-api.herokuapp.com/api/user/login', { username, password });
         return res.data;
     }
 )
@@ -12,7 +12,7 @@ export const login = createAsyncThunk(
 export const logout = createAsyncThunk(
     "user/logout",
     async () => {
-        const res = await axios.post('/api/user/logout');
+        const res = await axios.post('https://def-api.herokuapp.com/api/user/logout');
         return res.data;
     }
 );
@@ -20,7 +20,7 @@ export const logout = createAsyncThunk(
 export const getConnectedUser = createAsyncThunk(
     'user/get connected user',
     async () => {
-        const res = await axios.get('/api/user');
+        const res = await axios.get('https://def-api.herokuapp.com/api/user');
         return res.data;
     }
 );

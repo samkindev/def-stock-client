@@ -20,7 +20,7 @@ export const getFactures = createAsyncThunk(
 export const getCurrentFacture = createAsyncThunk(
     'facture/get current',
     async () => {
-        const res = await axios.get(`/api/ventes/facture_recente`);
+        const res = await axios.get(`https://def-api.herokuapp.com/api/ventes/facture_recente`);
         return res.data;
     }
 );

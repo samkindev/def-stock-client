@@ -17,7 +17,7 @@ const initialState = depotEntity.getInitialState({
 export const getDepots = createAsyncThunk(
     'get all depots',
     async () => {
-        const response = await axios.get('/api/depot');
+        const response = await axios.get('https://def-api.herokuapp.com/api/depot');
         return response.data;
     }
 );
@@ -25,7 +25,7 @@ export const getDepots = createAsyncThunk(
 export const creerDepot = createAsyncThunk(
     'create a depot',
     async (data) => {
-        const response = await axios.post('/api/depot', data);
+        const response = await axios.post('https://def-api.herokuapp.com/api/depot', data);
         return response.data;
     }
 );
@@ -33,7 +33,7 @@ export const creerDepot = createAsyncThunk(
 export const creerMultipleDepot = createAsyncThunk(
     'create multiple new depots',
     async (data) => {
-        const response = await axios.post('/api/depot/multiple', data);
+        const response = await axios.post('https://def-api.herokuapp.com/api/depot/multiple', data);
         return response.data;
     }
 );
@@ -41,7 +41,7 @@ export const creerMultipleDepot = createAsyncThunk(
 export const createDepotSubdivision = createAsyncThunk(
     'create depot subdivision',
     async (data) => {
-        const response = await axios.post('/api/subdivision', data);
+        const response = await axios.post('https://def-api.herokuapp.com/api/subdivision', data);
         return response.data;
     }
 );
@@ -49,7 +49,7 @@ export const createDepotSubdivision = createAsyncThunk(
 export const updateGeneralDepotData = createAsyncThunk(
     'update one depot',
     async ({ id, data }) => {
-        const response = await axios.patch(`/api/depot/${id}/general`, data);
+        const response = await axios.patch(`https://def-api.herokuapp.com/api/depot/${id}/general`, data);
         return response.data;
     }
 );
@@ -57,7 +57,7 @@ export const updateGeneralDepotData = createAsyncThunk(
 export const configureAllDepots = createAsyncThunk(
     'send new configs for all depots',
     async (data) => {
-        const response = await axios.post('/api/depot/configurations');
+        const response = await axios.post('https://def-api.herokuapp.com/api/depot/configurations');
         return response.data;
     }
 )
@@ -65,7 +65,7 @@ export const configureAllDepots = createAsyncThunk(
 export const deleteDepotSubdivision = createAsyncThunk(
     'delete depot subdivision',
     async (depotId) => {
-        const response = await axios.delete('/api/subdivision/' + depotId);
+        const response = await axios.delete('https://def-api.herokuapp.com/api/subdivision/' + depotId);
         return response.data;
     }
 );

@@ -19,7 +19,7 @@ const initialState = productAdapter.getInitialState({
 export const getProducts = createAsyncThunk(
     "produits/get all",
     async () => {
-        const response = await axios.get('/api/produit');
+        const response = await axios.get('https://def-api.herokuapp.com/api/produit');
         return response.data;
     }
 );
@@ -27,7 +27,7 @@ export const getProducts = createAsyncThunk(
 export const filteredProduct = createAsyncThunk(
     "produits/get filtered data",
     async (query) => {
-        const response = await axios.get('/api/produit/filter?' + query);
+        const response = await axios.get('https://def-api.herokuapp.com/api/produit/filter?' + query);
         return response.data;
     }
 );
@@ -35,7 +35,7 @@ export const filteredProduct = createAsyncThunk(
 export const createProduct = createAsyncThunk(
     "produits/create one",
     async (data) => {
-        const res = await axios.post('/api/produit', data);
+        const res = await axios.post('https://def-api.herokuapp.com/api/produit', data);
         return res.data;
     }
 );
@@ -43,7 +43,7 @@ export const createProduct = createAsyncThunk(
 export const deleteProduct = createAsyncThunk(
     "produits/delete one",
     async (productId) => {
-        const res = await axios.delete('/api/produit/' + productId);
+        const res = await axios.delete('https://def-api.herokuapp.com/api/produit/' + productId);
         return res.data;
     }
 );
@@ -51,7 +51,7 @@ export const deleteProduct = createAsyncThunk(
 export const updateProduct = createAsyncThunk(
     "produits/update one",
     async ({ productId, data }) => {
-        const res = await axios.patch('/api/produit/' + productId, data);
+        const res = await axios.patch('https://def-api.herokuapp.com/api/produit/' + productId, data);
         return res.data;
     }
 );
@@ -59,7 +59,7 @@ export const updateProduct = createAsyncThunk(
 export const changeProductsEtat = createAsyncThunk(
     "produits/change etat",
     async ({ ids, status }) => {
-        const response = await axios.patch('/api/produit/change_status?etat=' + status, ids);
+        const response = await axios.patch('https://def-api.herokuapp.com/api/produit/change_status?etat=' + status, ids);
         return response.data;
     }
 );

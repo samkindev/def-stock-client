@@ -23,7 +23,7 @@ const initialState = entreeEntity.getInitialState({
 export const createEntreeDepot = createAsyncThunk(
     'entree/creer',
     async ({ depotId, data }) => {
-        const res = await axios.post(`/api/depot/${depotId}/entree/`, data);
+        const res = await axios.post(`https://def-api.herokuapp.com/api/depot/${depotId}/entree/`, data);
         return res.data;
     });
 
@@ -31,7 +31,7 @@ export const createEntreeDepot = createAsyncThunk(
 export const getDepotEntree = createAsyncThunk(
     'entree/count',
     async (depotId) => {
-        const res = await axios.get(`/api/depot/${depotId}/entree`);
+        const res = await axios.get(`https://def-api.herokuapp.com/api/depot/${depotId}/entree`);
         return res.data;
     }
 );

@@ -15,7 +15,7 @@ const initialState = ficheStockEntity.getInitialState({
 export const getFicheStockInitData = createAsyncThunk(
     'fiche-stocks/get-initial-data',
     async () => {
-        const res = await axios.get('/api/fiche_stocks');
+        const res = await axios.get('https://def-api.herokuapp.com/api/fiche_stocks');
         return res.data;
     }
 );
@@ -23,7 +23,7 @@ export const getFicheStockInitData = createAsyncThunk(
 export const getFicheStockData = createAsyncThunk(
     'fiche-stocks/get-fiche-stocks-data',
     async () => {
-        const res = await axios.get('/api/fiche_stocks/mouvement');
+        const res = await axios.get('https://def-api.herokuapp.com/api/fiche_stocks/mouvement');
         return res.data;
     }
 );

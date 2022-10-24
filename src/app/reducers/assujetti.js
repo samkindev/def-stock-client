@@ -12,7 +12,7 @@ const initialState = {
 export const getUserData = createAsyncThunk(
     "assujetti/entreprise-data",
     async () => {
-        const res = await axios.get('/api/user');
+        const res = await axios.get('https://def-api.herokuapp.com/api/user');
         return res.data;
     }
 );

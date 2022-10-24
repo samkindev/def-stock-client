@@ -14,7 +14,7 @@ const initialState = stockEntity.getInitialState({
 export const getStocks = createAsyncThunk(
     'stocks/get-for-entreprise',
     async (eseId) => {
-        const res = await axios.get('/api/stock/' + eseId);
+        const res = await axios.get('https://def-api.herokuapp.com/api/stock/' + eseId);
         return res.data;
     }
 );
@@ -22,7 +22,7 @@ export const getStocks = createAsyncThunk(
 export const getOneStock = createAsyncThunk(
     'stocks/get-one',
     async (eseId, stockId) => {
-        const res = await axios.get('/api/stock/' + eseId + '/' + stockId);
+        const res = await axios.get('https://def-api.herokuapp.com/api/stock/' + eseId + '/' + stockId);
         return res.data;
     }
 );
@@ -30,7 +30,7 @@ export const getOneStock = createAsyncThunk(
 export const creerStock = createAsyncThunk(
     'stocks/creer',
     async ({ eseId, data }) => {
-        const res = await axios.post('/api/stock/' + eseId, data);
+        const res = await axios.post('https://def-api.herokuapp.com/api/stock/' + eseId, data);
         return res.data;
     }
 );

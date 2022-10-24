@@ -15,7 +15,7 @@ const initialState = factureAchatEntity.getInitialState({
 export const getFacturesAchat = createAsyncThunk(
     'facture/get all',
     async () => {
-        const {data} = await axios.get('/api/entrees/factures');
+        const {data} = await axios.get('https://def-api.herokuapp.com/api/entrees/factures');
         return data;
     }
 );

@@ -19,7 +19,7 @@ const initialState = stockProduitEntity.getInitialState({
 export const getProduits = createAsyncThunk(
 	"produits/get-for-entreprise",
 	async (stockId) => {
-		const res = await axios.get("/api/produits?stock=" + stockId);
+		const res = await axios.get("https://def-api.herokuapp.com/api/produits?stock=" + stockId);
 		return res.data;
 	}
 );

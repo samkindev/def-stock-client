@@ -25,7 +25,7 @@ const initialState = sortieEntity.getInitialState({
 export const createSortie = createAsyncThunk(
     'sortie/creer',
     async ({ depotId, data }) => {
-        const res = await axios.post(`/api/depot/${depotId}/sorties`, data);
+        const res = await axios.post(`https://def-api.herokuapp.com/api/depot/${depotId}/sorties`, data);
         return res.data;
     });
 
@@ -33,7 +33,7 @@ export const createSortie = createAsyncThunk(
 export const getSorties = createAsyncThunk(
     'sortie/get all',
     async (depotId) => {
-        const res = await axios.get(`/api/depot/${depotId}/sorties`);
+        const res = await axios.get(`https://def-api.herokuapp.com/api/depot/${depotId}/sorties`);
         return res.data;
     }
 );
@@ -41,7 +41,7 @@ export const getSorties = createAsyncThunk(
 export const getMotifsSortie = createAsyncThunk(
     'sortie/get motifs',
     async () => {
-        const res = await axios.get('/api/motif_sortie');
+        const res = await axios.get('https://def-api.herokuapp.com/api/motif_sortie');
         return res.data;
     }
 );
