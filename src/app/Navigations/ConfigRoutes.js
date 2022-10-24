@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { styled } from '@mui/system';
 import ConfigNavBar from './NavBars/ConfigNavBar';
 import ConfigHome from '../../modules/Configurations/ConfigHome';
@@ -35,7 +35,7 @@ export default function ConfigRoutes() {
                     />
                     <Route
                         path=""
-                        element={<ConfigHome />}
+                        element={<Navigate to="/configurations/depots" />}
                     />
                 </Routes>
 

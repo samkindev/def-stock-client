@@ -30,7 +30,6 @@ export default function ProduitConfigRoutes() {
     }
 
     useEffect(() => {
-        if (categories.length === 0) {
             setLoading(true);
             axios
                 .get('/api/categorie_produit')
@@ -40,8 +39,7 @@ export default function ProduitConfigRoutes() {
                 }).catch(err => {
                     console.log(err);
                 }).finally(() => setLoading(false));
-        }
-    }, [categories]);
+    }, []);
 
     return (
         <CategoryContext.Provider value={{ categories, loading, selectedCategory, setSelectedCategory }}>

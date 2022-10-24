@@ -1,17 +1,12 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useState } from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import socketIOClient from 'socket.io-client';
-import Login from './modules/Auth';
-import { ForbiddenPage, ProtectedPage, Chargement, Feedback } from './Components';
-import { getConnectedUser } from './app/reducers/auth';
+import { Feedback } from './Components';
 import MainRoutes from './app/Navigations/MainRoutes';
 
 // Context creation
 export const FeedbackContext = createContext({});
 export const SocketContext = createContext();
-const socket = socketIOClient('http://localhost:8082');
 
 export default function App() {
 	// Feedback context value
@@ -41,7 +36,6 @@ export default function App() {
 	};
 
 	return (
-		<SocketContext.Provider value={socket}>
 			<FeedbackContext.Provider value={FEEDBACKCONTEXTVALUE}>
 				<Routes>
 					<Route
@@ -51,6 +45,5 @@ export default function App() {
 				</Routes>
 				<Feedback />
 			</FeedbackContext.Provider>
-		</SocketContext.Provider>
 	)
 }

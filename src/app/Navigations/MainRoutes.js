@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-// import StockNavigation from '../../modules/Stock/navigation';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectAll as selectAllDepots } from '../reducers/depot';
 import MainSplash from '../../Splash';
@@ -10,7 +9,6 @@ import GestionDepotsRoutes from './GestionDepotsRoutes';
 import { getDepots, getReqStatus } from '../reducers/depot';
 import { Chargement } from '../../Components';
 import FacturationRoutes from './FacturationRoutes';
-import ConfigLeftAside from '../../modules/Configurations/Depots/components/ConfigAside';
 
 const StyledContainer = styled('div')(({ theme }) => ({
     width: '100%',
