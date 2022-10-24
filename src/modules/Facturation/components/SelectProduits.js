@@ -301,7 +301,7 @@ export default function SelectProduits({ open = true, onClose }) {
             setPvUnitaire(0);
             setTotal(0);
             axios
-                .get(`/api/depot/${depot.id}/vente/produits/${produit.id}`)
+                .get(`https://def-api.herokuapp.com/api/depot/${depot.id}/vente/produits/${produit.id}`)
                 .then(res => {
                     const d = res.data;
                     setUnits(d.units);

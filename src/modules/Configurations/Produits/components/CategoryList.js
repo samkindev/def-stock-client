@@ -112,7 +112,7 @@ export default function CategoryList() {
         if (query !== "") {
             setSearching(true);
             axios
-                .get('/api/type_produit/search/' + query)
+                .get('https://def-api.herokuapp.com/api/type_produit/search/' + query)
                 .then(res => {
                     const d = res.data;
                     setDisplayedCategories(d);

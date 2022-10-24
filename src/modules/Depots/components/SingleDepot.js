@@ -21,7 +21,7 @@ export default function SingleDepot() {
 
     const getSubdivision = () => {
         setLoading(true);
-        axios.get(`/api/depot/${id}/subdivision`).then(res => {
+        axios.get(`https://def-api.herokuapp.com/api/depot/${id}/subdivision`).then(res => {
             const d = res.data;
             setSubdivisions(d);
         }).catch(error => {

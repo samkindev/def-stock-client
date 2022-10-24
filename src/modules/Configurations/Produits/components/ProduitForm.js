@@ -416,7 +416,7 @@ export default function ProduitForm({ produitType, onClose }) {
 
     useEffect(() => {
         setLoading(true);
-        axios.get('/api/unite_produit').then(res => {
+        axios.get('https://def-api.herokuapp.com/api/unite_produit').then(res => {
             const data = res.data;
             if (data instanceof Array && data.length > 0) {
                 setUnites(data);

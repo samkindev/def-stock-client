@@ -16,7 +16,7 @@ export const getClientData = async (numDef, assujetti, cb) => {
 
 	cb(true);
 	axios
-		.post(`/api/assujetti/by_def/${nD}`, { numero_def: numDef })
+		.post(`https://def-api.herokuapp.com/api/assujetti/by_def/${nD}`, { numero_def: numDef })
 		.then(res => {
 			const d = res.data;
 			if (!d.numero_def) {

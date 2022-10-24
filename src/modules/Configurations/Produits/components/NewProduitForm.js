@@ -128,7 +128,7 @@ export default function NewProduitForm({ onClose, categories }) {
         if (query !== "") {
             setSearching(true);
             axios
-                .get('/api/type_produit/search/' + query)
+                .get('https://def-api.herokuapp.com/api/type_produit/search/' + query)
                 .then(res => {
                     const d = res.data;
                     setDisplayedCategories(d);
@@ -144,7 +144,7 @@ export default function NewProduitForm({ onClose, categories }) {
     useEffect(() => {
         if (selectedCategoryId) {
             setGettingType(true);
-            axios.get(`/api/type_produit/${selectedCategoryId}`)
+            axios.get(`https://def-api.herokuapp.com/api/type_produit/${selectedCategoryId}`)
                 .then(res => {
                     const d = res.data;
                     if (d.type) {

@@ -166,7 +166,7 @@ export default function ProduitSortieTable({ errors, setErrors, rowCount = [], s
         if (depot) {
             setLoadingData(true);
             axios
-                .get(`/api/depot/${depot.id}/vente/produits/${val.id}`)
+                .get(`https://def-api.herokuapp.com/api/depot/${depot.id}/vente/produits/${val.id}`)
                 .then(res => {
                     const d = res.data;
                     const unite = d.units.find(u => u.type_unite === 'default');

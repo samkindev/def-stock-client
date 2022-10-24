@@ -272,7 +272,7 @@ export default function UpdateProductRow({ open = true, onClose, productRow }) {
         if (produit && depot) {
             setLoadingData(true);
             axios
-                .get(`/api/depot/${depot.id}/vente/produits/${produit.id}`)
+                .get(`https://def-api.herokuapp.com/api/depot/${depot.id}/vente/produits/${produit.id}`)
                 .then(res => {
                     const d = res.data;
                     const unit = d.units.find(u => u.id === rows.find(r => r.id === productRow.id).unit.id);
